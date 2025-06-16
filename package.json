@@ -12,7 +12,13 @@
     "start:standalone": "node standalone-server.js",
     "hosting:install": "npm install --production",
     "hosting:start": "node standalone-server.js",
+    "postinstall": "echo 'Dependencies installed successfully'",
     "lint": "next lint"
+  },
+  "main": "standalone-server.js",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
   },
   "dependencies": {
     "lucide-react": "^0.515.0",
