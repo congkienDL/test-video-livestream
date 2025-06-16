@@ -43,10 +43,9 @@ export default function ViewerView({ onBack }: StreamerViewProps) {
   const [newMessage, setNewMessage] = useState('');
   const [liveStreams, setLiveStreams] = useState<Stream[]>([]);
   const videoRef = useRef<HTMLVideoElement>(null);
-  // Socket functionality disabled for build compatibility
 
   useEffect(() => {
-    // Mock data for demo - TODO: Re-enable socket functionality
+    // Mock data for demo
     const mockStreams: Stream[] = [
       {
         id: '1',
@@ -75,58 +74,6 @@ export default function ViewerView({ onBack }: StreamerViewProps) {
     ];
 
     setLiveStreams(mockStreams);
-
-    // TODO: Re-enable socket functionality after build
-    // if (socket) {
-    //   // Request current streams when component mounts
-    //   socket.emit('get-streams');
-    //
-    //   // Listen for streams list
-    //   socket.on('streams-list', (streams: Stream[]) => {
-    //     setLiveStreams(streams);
-    //   });
-    //
-    //   // Listen for new streams
-    //   socket.on('new-stream', (stream: Stream) => {
-    //     setLiveStreams(prev => [...prev, stream]);
-    //   });
-    //
-    //   // Listen for stream ended
-    //   socket.on('stream-ended', (streamKey: string) => {
-    //     setLiveStreams(prev => prev.filter(stream => stream.id !== streamKey));
-    //     if (selectedStream?.id === streamKey) {
-    //       setSelectedStream(null);
-    //     }
-    //   });
-    //
-    //   // Listen for viewer count updates
-    //   socket.on('viewer-count-update', (data) => {
-    //     setLiveStreams(prev => prev.map(stream =>
-    //       stream.id === data.streamKey
-    //         ? { ...stream, viewers: data.count }
-    //         : stream
-    //     ));
-    //
-    //     if (selectedStream?.id === data.streamKey) {
-    //       setSelectedStream(prev => prev ? { ...prev, viewers: data.count } : null);
-    //     }
-    //   });
-    //
-    //   // Listen for new chat messages
-    //   socket.on('new-chat-message', (message: ChatMessage) => {
-    //     setChatMessages(prev => [...prev, message]);
-    //   });
-    // }
-
-    // return () => {
-    //   if (socket) {
-    //     socket.off('streams-list');
-    //     socket.off('new-stream');
-    //     socket.off('stream-ended');
-    //     socket.off('viewer-count-update');
-    //     socket.off('new-chat-message');
-    //   }
-    // };
   }, []);
 
   const filteredStreams = liveStreams.filter(stream =>
@@ -136,9 +83,6 @@ export default function ViewerView({ onBack }: StreamerViewProps) {
 
   const sendMessage = () => {
     if (newMessage.trim() && selectedStream) {
-      // TODO: Re-enable socket functionality when needed
-      // Socket functionality is disabled for build compatibility
-
       // Mock chat message for demo
       const message: ChatMessage = {
         id: Date.now().toString(),
@@ -158,16 +102,7 @@ export default function ViewerView({ onBack }: StreamerViewProps) {
   };
 
   useEffect(() => {
-    // TODO: Re-enable socket functionality
-    // if (selectedStream && socket) {
-    //   // Join the stream room for real-time updates
-    //   socket.emit('join-stream', selectedStream.id);
-    //
-    //   return () => {
-    //     // Leave the stream room when component unmounts or stream changes
-    //     socket.emit('leave-stream', selectedStream.id);
-    //   };
-    // }
+    // Real-time functionality will be added later
   }, [selectedStream]);
 
   if (selectedStream) {

@@ -16,28 +16,14 @@ export default function StreamerView({ onBack }: StreamerViewProps) {
   const [streamTitle, setStreamTitle] = useState('My Live Stream');
   const videoRef = useRef<HTMLVideoElement>(null);
   const streamRef = useRef<MediaStream | null>(null);
-  // Socket functionality disabled for build compatibility
 
   useEffect(() => {
     startCamera();
-
-    // TODO: Re-enable socket functionality after build
-    // Listen for viewer count updates
-    // if (socket) {
-    //   socket.on('viewer-count-update', (data) => {
-    //     if (data.streamKey === streamKey) {
-    //       setViewerCount(data.count);
-    //     }
-    //   });
-    // }
 
     return () => {
       if (streamRef.current) {
         streamRef.current.getTracks().forEach(track => track.stop());
       }
-      // if (socket) {
-      //   socket.off('viewer-count-update');
-      // }
     };
   }, [streamKey]);
 
@@ -60,22 +46,11 @@ export default function StreamerView({ onBack }: StreamerViewProps) {
   const toggleStream = () => {
     if (!isStreaming) {
       // Start streaming
-      // TODO: Re-enable socket functionality
-      // if (socket) {
-      //   socket.emit('start-stream', {
-      //     streamKey,
-      //     title: streamTitle,
-      //     streamer: 'Anonymous Streamer'
-      //   });
-      // }
       setIsStreaming(true);
       // Simulate viewer count for demo
       setViewerCount(Math.floor(Math.random() * 50) + 1);
     } else {
       // Stop streaming
-      // if (socket) {
-      //   socket.emit('stop-stream', streamKey);
-      // }
       setIsStreaming(false);
       setViewerCount(0);
     }
