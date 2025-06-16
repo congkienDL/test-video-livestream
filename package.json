@@ -13,9 +13,11 @@
     "hosting:install": "npm install --production",
     "hosting:start": "node standalone-server.js",
     "postinstall": "echo 'Dependencies installed successfully'",
+    "heroku-postbuild": "echo 'Build completed'",
+    "deploy": "node standalone-server.js",
     "lint": "next lint"
   },
-  "main": "standalone-server.js",
+  "main": "index.js",
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=8.0.0"
