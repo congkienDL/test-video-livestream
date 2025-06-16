@@ -15,6 +15,7 @@
     "postinstall": "echo 'Dependencies installed successfully'",
     "heroku-postbuild": "echo 'Build completed'",
     "deploy": "node standalone-server.js",
+    "vercel-build": "npm run build",
     "lint": "next lint"
   },
   "main": "index.js",

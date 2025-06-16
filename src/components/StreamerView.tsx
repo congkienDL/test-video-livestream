@@ -18,7 +18,7 @@ export default function StreamerView({ onBack }: StreamerViewProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const streamRef = useRef<MediaStream | null>(null);
   // const socket = useSocket();
-  const socket = null;
+  // const socket = null; // Disabled for build compatibility
 
   useEffect(() => {
     startCamera();

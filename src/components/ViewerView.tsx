@@ -45,7 +45,7 @@ export default function ViewerView({ onBack }: StreamerViewProps) {
   const [liveStreams, setLiveStreams] = useState<Stream[]>([]);
   const videoRef = useRef<HTMLVideoElement>(null);
   // const socket = useSocket();
-  const socket = null;
+  // const socket = null; // Disabled for build compatibility
 
   useEffect(() => {
     // Mock data for demo - TODO: Re-enable socket functionality
@@ -138,14 +138,8 @@ export default function ViewerView({ onBack }: StreamerViewProps) {
 
   const sendMessage = () => {
     if (newMessage.trim() && selectedStream) {
-      // TODO: Re-enable socket functionality
-      // if (socket) {
-      //   socket.emit('chat-message', {
-      //     streamKey: selectedStream.id,
-      //     username: 'Anonymous Viewer',
-      //     message: newMessage
-      //   });
-      // }
+      // TODO: Re-enable socket functionality when needed
+      // Socket functionality is disabled for build compatibility
 
       // Mock chat message for demo
       const message: ChatMessage = {
