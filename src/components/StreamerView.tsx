@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { ArrowLeft, Video, VideoOff, Mic, MicOff, Users, Share2 } from 'lucide-react';
-// import { useSocket } from '@/hooks/useSocket';
 
 interface StreamerViewProps {
   onBack: () => void;
@@ -17,8 +16,7 @@ export default function StreamerView({ onBack }: StreamerViewProps) {
   const [streamTitle, setStreamTitle] = useState('My Live Stream');
   const videoRef = useRef<HTMLVideoElement>(null);
   const streamRef = useRef<MediaStream | null>(null);
-  // const socket = useSocket();
-  // const socket = null; // Disabled for build compatibility
+  // Socket functionality disabled for build compatibility
 
   useEffect(() => {
     startCamera();

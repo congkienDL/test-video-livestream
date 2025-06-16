@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { ArrowLeft, Search, Users, Eye, MessageCircle, Send } from 'lucide-react';
-// import { useSocket } from '@/hooks/useSocket';
 
 interface StreamerViewProps {
   onBack: () => void;
@@ -44,8 +43,7 @@ export default function ViewerView({ onBack }: StreamerViewProps) {
   const [newMessage, setNewMessage] = useState('');
   const [liveStreams, setLiveStreams] = useState<Stream[]>([]);
   const videoRef = useRef<HTMLVideoElement>(null);
-  // const socket = useSocket();
-  // const socket = null; // Disabled for build compatibility
+  // Socket functionality disabled for build compatibility
 
   useEffect(() => {
     // Mock data for demo - TODO: Re-enable socket functionality
